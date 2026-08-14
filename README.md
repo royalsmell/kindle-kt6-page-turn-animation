@@ -101,11 +101,9 @@ RESULT: SUCCESS - swipeMode.available=true is installed for [ri7].
 
 ## 致谢
 
-- 感谢原始思路和实机验证提供者：QQ `744846656`
-- 小红书：`og`
+- 感谢原始思路和实机验证提供者：小红书用户 `og`（ID：`744846656`）
 - 感谢 Véra、Universal Hotfix、FBInk 与 Kindle Modding 社区的开发者和维护者
 
 ## 许可证
 
 [MIT License](LICENSE)
-
