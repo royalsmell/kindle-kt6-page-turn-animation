@@ -43,12 +43,12 @@ if [ ! -r /proc/usid ] || [ "$(cut -c 1-6 /proc/usid 2>/dev/null)" != "G093KM" ]
 fi
 write "Model check: PASS (G093KM)"
 
-if [ ! -r /etc/version.txt ] || ! grep -q 'juno_1806' /etc/version.txt 2>/dev/null; then
-    write "FAIL: Expected KT6 firmware family juno_1806 was not detected."
+if [ ! -r /etc/version.txt ] || ! grep -q -E 'juno_1806|juno_1906_rossini_bellatrix' /etc/version.txt 2>/dev/null; then
+    write "FAIL: Expected KT6 firmware family (juno_1806 = 5.18.6, juno_1906_rossini_bellatrix = 5.19.6) was not detected."
     write "No change was made."
     exit 4
 fi
-write "Firmware check: PASS (juno_1806 / 5.18.6)"
+write "Firmware check: PASS ($(grep -o -E 'juno_1806|juno_1906_rossini_bellatrix' /etc/version.txt | head -n 1))"
 
 if [ ! -r "$SOURCE" ] || ! command -v devcap-encrypt >/dev/null 2>&1; then
     write "FAIL: Required system configuration or decrypt tool is unavailable."
